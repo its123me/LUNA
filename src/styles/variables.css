@@ -1,0 +1,35 @@
+:root {
+  --bg-main: #070811;
+  --bg-deep: #0A0C18;
+  --bg-surface: #101326;
+  --bg-card: rgba(20, 24, 45, 0.72);
+
+  --moon-blue: #7377A8;
+  --moon-light: #DCDCF0;
+  --night-indigo: #171A35;
+
+  --lavender: #9B91C7;
+  --lavender-soft: #B8AFD8;
+  --violet-glow: rgba(155, 145, 199, 0.25);
+
+  --candle: #F2D39B;
+  --candle-light: #FFE8B8;
+  --candle-glow: rgba(242, 211, 155, 0.28);
+
+  --star: #F4F0D8;
+  --star-soft: #D8D5C5;
+
+  --text-primary: #F3F1F7;
+  --text-secondary: #B7B5C7;
+  --text-muted: #85849A;
+
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(255, 255, 255, 0.10);
+
+  --shadow-deep: rgba(0, 0, 0, 0.45);
+  --border-soft: rgba(220, 220, 240, 0.10);
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}

@@ -1,0 +1,663 @@
+
+
+/* =========================================================
+   LUNA — MEMORIES
+   Soft moonlight / glass / quiet sanctuary
+   ========================================================= */
+
+.memories-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px 24px 120px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---------------------------------------------------------
+   BACK
+   --------------------------------------------------------- */
+
+.memory-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.58);
+  cursor: pointer;
+  font: inherit;
+  transition: 0.25s ease;
+  backdrop-filter: blur(12px);
+}
+
+.memory-back:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(-3px);
+}
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.memories-hero {
+  width: min(100%, 780px);
+  margin: 70px auto 42px;
+  text-align: center;
+}
+
+.memory-symbol {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.035) 55%,
+      rgba(255, 255, 255, 0.015)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.012),
+    0 0 45px rgba(180, 170, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.memory-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.43);
+}
+
+.memories-hero h1 {
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+.memories-hero h1 span {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.memories-hero > p:last-child {
+  max-width: 540px;
+  margin: 24px auto 0;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+/* ---------------------------------------------------------
+   ACTION
+   --------------------------------------------------------- */
+
+.memory-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 78px;
+}
+
+.new-memory-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 23px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.105),
+      rgba(255, 255, 255, 0.045)
+    );
+  color: rgba(255, 255, 255, 0.88);
+  font: inherit;
+  cursor: pointer;
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.new-memory-button:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.20);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.20),
+    0 0 30px rgba(180, 170, 255, 0.06);
+}
+
+/* ---------------------------------------------------------
+   SECTIONS
+   --------------------------------------------------------- */
+
+.my-memories-section,
+.community-memories-section {
+  width: min(100%, 900px);
+  margin: 0 auto 100px;
+}
+
+.memory-section-heading {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.memory-section-heading > p {
+  margin: 0 0 10px;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.memory-section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2rem);
+  font-weight: 350;
+  letter-spacing: -0.02em;
+}
+
+.memory-section-heading > span {
+  display: block;
+  max-width: 570px;
+  margin: 13px auto 0;
+  color: rgba(255, 255, 255, 0.47);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+/* ---------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------- */
+
+.memory-empty {
+  min-height: 260px;
+  box-sizing: border-box;
+  padding: 48px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 255, 255, 0.055),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(22px);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.memory-empty svg {
+  margin-bottom: 20px;
+  opacity: 0.42;
+}
+
+.memory-empty h2 {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 400;
+}
+
+.memory-empty p {
+  max-width: 460px;
+  margin: 13px auto 0;
+  color: rgba(255, 255, 255, 0.44);
+  line-height: 1.8;
+}
+
+/* ---------------------------------------------------------
+   MEMORY LIST
+   --------------------------------------------------------- */
+
+.memory-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* ---------------------------------------------------------
+   MEMORY CARD
+   --------------------------------------------------------- */
+
+.memory-card {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 25px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(255, 255, 255, 0.055),
+      transparent 45%
+    ),
+    rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25px;
+  right: 25px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+}
+
+.memory-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(255, 255, 255, 0.075),
+      transparent 50%
+    ),
+    rgba(255, 255, 255, 0.045);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.22),
+    0 0 35px rgba(180, 170, 255, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ---------------------------------------------------------
+   CARD HEADER
+   --------------------------------------------------------- */
+
+.memory-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.memory-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.memory-title-row h2 {
+  margin: 0;
+  font-size: 1.16rem;
+  line-height: 1.35;
+  font-weight: 450;
+}
+
+.memory-card small {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.72rem;
+}
+
+/* ---------------------------------------------------------
+   MEMORY TEXT
+   --------------------------------------------------------- */
+
+.memory-card > p {
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.9;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------------------------------------------------------
+   DELETE
+   --------------------------------------------------------- */
+
+.delete-memory {
+  width: 37px;
+  height: 37px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.34);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.delete-memory:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(255, 255, 255, 0.13);
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------
+   VISIBILITY
+   --------------------------------------------------------- */
+
+.visibility-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.visibility-private {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.visibility-anonymous {
+  background: rgba(180, 170, 255, 0.07);
+}
+
+.visibility-public {
+  background: rgba(255, 255, 255, 0.065);
+}
+
+/* ---------------------------------------------------------
+   SEND LOVE
+   --------------------------------------------------------- */
+
+.send-love-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.send-love-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.54);
+  font: inherit;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.send-love-button:hover,
+.send-love-active {
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(255, 255, 255, 0.13);
+  transform: translateY(-1px);
+}
+
+.send-love-active svg {
+  transform: scale(1.12);
+}
+
+.love-count {
+  min-width: 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* ---------------------------------------------------------
+   FORM
+   --------------------------------------------------------- */
+
+.memory-form-card {
+  width: min(100%, 700px);
+  box-sizing: border-box;
+  margin: 0 auto 75px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    ),
+    rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.23),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.memory-form-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.memory-form-heading h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.memory-form-heading p {
+  margin: 9px 0 0;
+  color: rgba(255, 255, 255, 0.43);
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------
+   FORM FIELDS
+   --------------------------------------------------------- */
+
+.memory-form-card label {
+  display: block;
+  margin-bottom: 21px;
+}
+
+.memory-form-card label > span {
+  display: block;
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.79rem;
+  letter-spacing: 0.01em;
+}
+
+.memory-form-card input,
+.memory-form-card textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.16);
+  color: rgba(255, 255, 255, 0.91);
+  outline: none;
+  resize: vertical;
+  font: inherit;
+  line-height: 1.6;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.10);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.memory-form-card textarea {
+  min-height: 150px;
+}
+
+.memory-form-card input:hover,
+.memory-form-card textarea:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.memory-form-card input:focus,
+.memory-form-card textarea:focus {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.025),
+    inset 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.memory-form-card input::placeholder,
+.memory-form-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.27);
+}
+
+/* ---------------------------------------------------------
+   FORM BUTTONS
+   --------------------------------------------------------- */
+
+.memory-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 27px;
+}
+
+.memory-cancel,
+.memory-save {
+  min-height: 42px;
+  padding: 10px 19px;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.memory-cancel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.memory-save {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.memory-cancel:hover,
+.memory-save:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.17);
+}
+
+.memory-save:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 650px) {
+  .memories-page {
+    padding: 22px 15px 80px;
+  }
+
+  .memories-hero {
+    margin-top: 55px;
+    margin-bottom: 35px;
+  }
+
+  .memories-hero h1 {
+    font-size: clamp(2.45rem, 13vw, 4rem);
+  }
+
+  .memory-actions {
+    margin-bottom: 58px;
+  }
+
+  .new-memory-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .my-memories-section,
+  .community-memories-section {
+    margin-bottom: 75px;
+  }
+
+  .memory-card,
+  .memory-form-card {
+    padding: 21px;
+    border-radius: 22px;
+  }
+
+  .memory-card-top {
+    gap: 12px;
+  }
+
+  .memory-title-row {
+    gap: 7px;
+  }
+
+  .memory-title-row h2 {
+    font-size: 1.05rem;
+  }
+
+  .memory-card > p {
+    font-size: 0.92rem;
+  }
+
+  .memory-form-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .memory-cancel,
+  .memory-save {
+    width: 100%;
+  }
+
+  .memory-empty {
+    min-height: 230px;
+    padding: 38px 22px;
+  }
+}

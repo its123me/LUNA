@@ -1,0 +1,228 @@
+/* =========================================================
+   LUNA — ATMOSPHERE & ANIMATIONS
+   ========================================================= */
+
+@keyframes luna-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes luna-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes luna-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0.65;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes luna-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.hero-glow {
+  animation: luna-glow 8s ease-in-out infinite;
+}
+
+.candle-icon {
+  animation: luna-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ============================================================
+   LUNA — UNIVERSAL HEART PARTICLES
+   Used whenever someone leaves love, a message or remembrance.
+   ============================================================ */
+
+.heart-particles {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+.heart-particle {
+  position: absolute;
+  bottom: 18%;
+
+  display: block;
+
+  color: #f0a9c1;
+
+  opacity: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+
+  text-shadow:
+    0 0 7px rgba(240, 169, 193, 0.45),
+    0 0 18px rgba(197, 143, 165, 0.24);
+
+  animation-name: luna-heart-rise;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
+  will-change: transform, opacity;
+}
+
+/* Main floating movement */
+@keyframes luna-heart-rise {
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(0, 10px, 0)
+      rotate(var(--heart-rotation))
+      scale(0.65);
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  45% {
+    opacity: 0.72;
+  }
+
+  75% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(
+        calc((var(--heart-rotation) * 1.8)),
+        -190px,
+        0
+      )
+      rotate(calc(var(--heart-rotation) * -1))
+      scale(1.05);
+  }
+}
+
+/* ------------------------------------------------------------
+   LOVE — pink
+   ------------------------------------------------------------ */
+
+.heart-particles-love .heart-particle {
+  color: #f0a9c1;
+}
+
+/* ------------------------------------------------------------
+   LITTLE STARS — soft ivory
+   ------------------------------------------------------------ */
+
+.heart-particles-stars .heart-particle {
+  color: #f4f0d8;
+
+  text-shadow:
+    0 0 7px rgba(244, 240, 216, 0.45),
+    0 0 16px rgba(244, 240, 216, 0.20);
+}
+
+/* ------------------------------------------------------------
+   THOSE WE MISS — lavender moonlight
+   ------------------------------------------------------------ */
+
+.heart-particles-miss .heart-particle {
+  color: #b7bee0;
+
+  text-shadow:
+    0 0 7px rgba(183, 190, 224, 0.45),
+    0 0 18px rgba(154, 164, 210, 0.24);
+}
+
+/* ------------------------------------------------------------
+   THOSE WHO LEFT — warm gold
+   ------------------------------------------------------------ */
+
+.heart-particles-departed .heart-particle {
+  color: #f0d49d;
+
+  text-shadow:
+    0 0 7px rgba(240, 212, 157, 0.45),
+    0 0 18px rgba(224, 185, 120, 0.24);
+}
+
+/* ------------------------------------------------------------
+   CANDLE — candlelight gold
+   ------------------------------------------------------------ */
+
+.heart-particles-candle .heart-particle {
+  color: #ffe8b8;
+
+  text-shadow:
+    0 0 8px rgba(255, 232, 184, 0.55),
+    0 0 20px rgba(242, 211, 155, 0.30);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .heart-particle {
+    animation: none;
+    opacity: 0.55;
+  }
+}
+/* ============================================================
+   LUNA — CANDLE SEND LOVE
+   ============================================================ */
+
+.send-love-button:has(svg) {
+  color: rgba(255, 232, 184, 0.78);
+  border-color: rgba(242, 211, 155, 0.18);
+  background: rgba(242, 211, 155, 0.045);
+}
+
+.send-love-button:has(svg):hover {
+  color: var(--candle-light);
+  border-color: rgba(242, 211, 155, 0.42);
+  background: rgba(242, 211, 155, 0.09);
+  box-shadow:
+    0 6px 24px rgba(242, 211, 155, 0.12),
+    inset 0 0 14px rgba(255, 232, 184, 0.04);
+}
+
+.send-love-button:has(svg):hover svg {
+  color: var(--candle-light);
+}
