@@ -19,41 +19,87 @@ export function clearLunaData() {
 }
 
 export function exportLunaData() {
-  const data: Record<string, unknown> = {};
+  const sections: string[] = [];
 
   const lunaKeys = [
-    "luna-candles",
     "luna-memories",
     "luna-stories",
+    "luna-candles",
     "luna-little-stars",
     "luna-love-memories",
     "luna-those-we-miss",
     "luna-those-who-left",
   ];
 
+  const titles: Record<string, string> = {
+    "luna-memories": "MY MEMORIES",
+    "luna-stories": "MY STORIES",
+    "luna-candles": "MY CANDLES",
+    "luna-little-stars": "LITTLE STARS",
+    "luna-love-memories": "LOVE",
+    "luna-those-we-miss": "THOSE WE MISS",
+    "luna-those-who-left": "THOSE WHO LEFT",
+  };
+
   lunaKeys.forEach((key) => {
     const stored = localStorage.getItem(key);
 
-    if (stored !== null) {
-      try {
-        data[key] = JSON.parse(stored);
-      } catch {
-        data[key] = stored;
-      }
+    if (!stored) return;
+
+    try {
+      const data = JSON.parse(stored);
+
+      if (!Array.isArray(data) || data.length === 0) return;
+
+      sections.push(
+        `\n${"═".repeat(55)}\n` +
+        `🌙 ${titles[key] || key.toUpperCase()}\n` +
+        `${"═".repeat(55)}\n`
+      );
+
+      data.forEach((item: any, index: number) => {
+        sections.push(
+          `\n${index + 1}. ${item.title || item.name || "Untitled"}\n` +
+          `${"─".repeat(55)}\n` +
+          `${item.text || item.message || item.content || ""}\n` +
+          `${item.date ? `\nDate: ${item.date}` : ""}\n`
+        );
+      });
+    } catch {
+      sections.push(
+        `\n${"═".repeat(55)}\n` +
+        `🌙 ${titles[key] || key.toUpperCase()}\n` +
+        `${"═".repeat(55)}\n\n` +
+        `${stored}\n`
+      );
     }
   });
 
-  const blob = new Blob(
-    [JSON.stringify(data, null, 2)],
-    { type: "application/json" }
-  );
+  const content =
+    `🌙 LUNA — MY PRIVATE MEMORIES\n` +
+    `${"═".repeat(55)}\n\n` +
+    `Created: ${new Date().toLocaleDateString()}\n\n` +
+    `This is your private LUNA backup.\n` +
+    `Keep it somewhere safe. 🤍\n` +
+    sections.join("\n") +
+    `\n\n${"═".repeat(55)}\n` +
+    `With love,\n` +
+    `LUNA 🌙\n` +
+    `${"═".repeat(55)}\n`;
+
+  const blob = new Blob([content], {
+    type: "text/plain;charset=utf-8",
+  });
 
   const url = URL.createObjectURL(blob);
 
   const link = document.createElement("a");
   link.href = url;
-  link.download = "luna-my-data.json";
+  link.download = "LUNA-my-memories.txt";
+
+  document.body.appendChild(link);
   link.click();
+  document.body.removeChild(link);
 
   URL.revokeObjectURL(url);
 }
